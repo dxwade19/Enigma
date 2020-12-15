@@ -5,9 +5,9 @@ using UnityEngine;
 [Serializable]
 public struct E_Link
 {
-    [SerializeField] string firstLetter;
-    [SerializeField] string secondLetter;
+    [SerializeField] string entryLetter;
+    [SerializeField] string exitLetter;
 
-    public string FirstLetter => firstLetter;
-    public string SecondLetter => secondLetter;
+    public string EntryLetter => entryLetter;
+    public string ExitLetter => exitLetter;
 }

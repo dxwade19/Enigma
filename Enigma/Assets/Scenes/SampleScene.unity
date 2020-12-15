@@ -121,6 +121,28 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &137109738 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1752735748132811145, guid: f77a18425314ae54a82fa6cad30afad2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1482702638523838886}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &137109739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137109738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dd17d01cd41b954a9a7afb3a21e3cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotors:
+  - {fileID: 751994285570193705}
+  - {fileID: 8394089830328592037}
+  - {fileID: 6706558366971643005}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,58 +337,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allLink:
-  - firstLetter: A
-    secondLetter: E
-  - firstLetter: B
-    secondLetter: K
-  - firstLetter: C
-    secondLetter: M
-  - firstLetter: D
-    secondLetter: F
-  - firstLetter: E
-    secondLetter: L
-  - firstLetter: F
-    secondLetter: G
-  - firstLetter: G
-    secondLetter: D
-  - firstLetter: H
-    secondLetter: Q
-  - firstLetter: I
-    secondLetter: V
-  - firstLetter: J
-    secondLetter: Z
-  - firstLetter: K
-    secondLetter: N
-  - firstLetter: L
-    secondLetter: T
-  - firstLetter: M
-    secondLetter: O
-  - firstLetter: N
-    secondLetter: W
-  - firstLetter: O
-    secondLetter: Y
-  - firstLetter: P
-    secondLetter: H
-  - firstLetter: Q
-    secondLetter: X
-  - firstLetter: R
-    secondLetter: U
-  - firstLetter: S
-    secondLetter: S
-  - firstLetter: T
-    secondLetter: P
-  - firstLetter: U
-    secondLetter: A
-  - firstLetter: V
-    secondLetter: I
-  - firstLetter: W
-    secondLetter: B
-  - firstLetter: X
-    secondLetter: R
-  - firstLetter: Y
-    secondLetter: C
-  - firstLetter: Z
-    secondLetter: J
+  - entryLetter: A
+    exitLetter: E
+  - entryLetter: B
+    exitLetter: K
+  - entryLetter: C
+    exitLetter: M
+  - entryLetter: D
+    exitLetter: F
+  - entryLetter: E
+    exitLetter: L
+  - entryLetter: F
+    exitLetter: G
+  - entryLetter: G
+    exitLetter: D
+  - entryLetter: H
+    exitLetter: Q
+  - entryLetter: I
+    exitLetter: V
+  - entryLetter: J
+    exitLetter: Z
+  - entryLetter: K
+    exitLetter: N
+  - entryLetter: L
+    exitLetter: T
+  - entryLetter: M
+    exitLetter: O
+  - entryLetter: N
+    exitLetter: W
+  - entryLetter: O
+    exitLetter: Y
+  - entryLetter: P
+    exitLetter: H
+  - entryLetter: Q
+    exitLetter: X
+  - entryLetter: R
+    exitLetter: U
+  - entryLetter: S
+    exitLetter: S
+  - entryLetter: T
+    exitLetter: P
+  - entryLetter: U
+    exitLetter: A
+  - entryLetter: V
+    exitLetter: I
+  - entryLetter: W
+    exitLetter: B
+  - entryLetter: X
+    exitLetter: R
+  - entryLetter: Y
+    exitLetter: C
+  - entryLetter: Z
+    exitLetter: J
   notche: Q
 --- !u!1001 &1482702638523838886
 PrefabInstance:
@@ -456,58 +478,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allLink:
-  - firstLetter: A
-    secondLetter: B
-  - firstLetter: B
-    secondLetter: D
-  - firstLetter: C
-    secondLetter: F
-  - firstLetter: D
-    secondLetter: H
-  - firstLetter: E
-    secondLetter: J
-  - firstLetter: F
-    secondLetter: L
-  - firstLetter: G
-    secondLetter: C
-  - firstLetter: H
-    secondLetter: P
-  - firstLetter: I
-    secondLetter: R
-  - firstLetter: J
-    secondLetter: T
-  - firstLetter: K
-    secondLetter: X
-  - firstLetter: L
-    secondLetter: V
-  - firstLetter: M
-    secondLetter: Z
-  - firstLetter: N
-    secondLetter: N
-  - firstLetter: O
-    secondLetter: Y
-  - firstLetter: P
-    secondLetter: E
-  - firstLetter: Q
-    secondLetter: I
-  - firstLetter: R
-    secondLetter: W
-  - firstLetter: S
-    secondLetter: G
-  - firstLetter: T
-    secondLetter: A
-  - firstLetter: U
-    secondLetter: K
-  - firstLetter: V
-    secondLetter: M
-  - firstLetter: W
-    secondLetter: U
-  - firstLetter: X
-    secondLetter: S
-  - firstLetter: Y
-    secondLetter: Q
-  - firstLetter: Z
-    secondLetter: O
+  - entryLetter: A
+    exitLetter: B
+  - entryLetter: B
+    exitLetter: D
+  - entryLetter: C
+    exitLetter: F
+  - entryLetter: D
+    exitLetter: H
+  - entryLetter: E
+    exitLetter: J
+  - entryLetter: F
+    exitLetter: L
+  - entryLetter: G
+    exitLetter: C
+  - entryLetter: H
+    exitLetter: P
+  - entryLetter: I
+    exitLetter: R
+  - entryLetter: J
+    exitLetter: T
+  - entryLetter: K
+    exitLetter: X
+  - entryLetter: L
+    exitLetter: V
+  - entryLetter: M
+    exitLetter: Z
+  - entryLetter: N
+    exitLetter: N
+  - entryLetter: O
+    exitLetter: Y
+  - entryLetter: P
+    exitLetter: E
+  - entryLetter: Q
+    exitLetter: I
+  - entryLetter: R
+    exitLetter: W
+  - entryLetter: S
+    exitLetter: G
+  - entryLetter: T
+    exitLetter: A
+  - entryLetter: U
+    exitLetter: K
+  - entryLetter: V
+    exitLetter: M
+  - entryLetter: W
+    exitLetter: U
+  - entryLetter: X
+    exitLetter: S
+  - entryLetter: Y
+    exitLetter: Q
+  - entryLetter: Z
+    exitLetter: O
   notche: V
 --- !u!1 &8394089830328592036 stripped
 GameObject:
@@ -528,56 +550,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allLink:
-  - firstLetter: A
-    secondLetter: A
-  - firstLetter: B
-    secondLetter: J
-  - firstLetter: C
-    secondLetter: D
-  - firstLetter: D
-    secondLetter: K
-  - firstLetter: E
-    secondLetter: S
-  - firstLetter: F
-    secondLetter: I
-  - firstLetter: G
-    secondLetter: R
-  - firstLetter: H
-    secondLetter: U
-  - firstLetter: I
-    secondLetter: X
-  - firstLetter: J
-    secondLetter: B
-  - firstLetter: K
-    secondLetter: L
-  - firstLetter: L
-    secondLetter: H
-  - firstLetter: M
-    secondLetter: W
-  - firstLetter: N
-    secondLetter: T
-  - firstLetter: O
-    secondLetter: M
-  - firstLetter: P
-    secondLetter: C
-  - firstLetter: Q
-    secondLetter: Q
-  - firstLetter: R
-    secondLetter: G
-  - firstLetter: S
-    secondLetter: Z
-  - firstLetter: T
-    secondLetter: N
-  - firstLetter: U
-    secondLetter: P
-  - firstLetter: V
-    secondLetter: Y
-  - firstLetter: W
-    secondLetter: F
-  - firstLetter: X
-    secondLetter: V
-  - firstLetter: Y
-    secondLetter: O
-  - firstLetter: Z
-    secondLetter: E
+  - entryLetter: A
+    exitLetter: A
+  - entryLetter: B
+    exitLetter: J
+  - entryLetter: C
+    exitLetter: D
+  - entryLetter: D
+    exitLetter: K
+  - entryLetter: E
+    exitLetter: S
+  - entryLetter: F
+    exitLetter: I
+  - entryLetter: G
+    exitLetter: R
+  - entryLetter: H
+    exitLetter: U
+  - entryLetter: I
+    exitLetter: X
+  - entryLetter: J
+    exitLetter: B
+  - entryLetter: K
+    exitLetter: L
+  - entryLetter: L
+    exitLetter: H
+  - entryLetter: M
+    exitLetter: W
+  - entryLetter: N
+    exitLetter: T
+  - entryLetter: O
+    exitLetter: M
+  - entryLetter: P
+    exitLetter: C
+  - entryLetter: Q
+    exitLetter: Q
+  - entryLetter: R
+    exitLetter: G
+  - entryLetter: S
+    exitLetter: Z
+  - entryLetter: T
+    exitLetter: N
+  - entryLetter: U
+    exitLetter: P
+  - entryLetter: V
+    exitLetter: Y
+  - entryLetter: W
+    exitLetter: F
+  - entryLetter: X
+    exitLetter: V
+  - entryLetter: Y
+    exitLetter: O
+  - entryLetter: Z
+    exitLetter: E
   notche: E
