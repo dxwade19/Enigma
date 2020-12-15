@@ -51,7 +51,7 @@ public class E_Rotor : MonoBehaviour
             string _letter = allLink[_enterPos].ExitLetter;
             string _enterLetter = allLink[allExit.IndexOf(_letter)].EntryLetter;
             Debug.Log($"{allExit[_enterPos]} - {allEntry[allEntry.IndexOf(_enterLetter)]}");
-            return allEntry.IndexOf(_enterLetter);
+            return allExit.IndexOf(_enterLetter);
         }
     }
     #endregion
@@ -100,9 +100,10 @@ public class E_Rotor : MonoBehaviour
 
     public string GetEntry(int _pos)
     {
-        if (_pos > allEntry.Count - 1) return "";
+        if (_pos > allEntry.Count - 1 || _pos < 0) return "";
         return allEntry[_pos];
     }
+    public int GetExitPos(string _letter) => allExit.IndexOf(_letter);
 
     #endregion
 
