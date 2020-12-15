@@ -6,23 +6,26 @@ using UnityEngine;
 public class E_Engine : MonoBehaviour
 {
     [SerializeField] E_Rotor[] rotors = new E_Rotor[0];
+    [SerializeField] E_Reflector reflector = null;
+
+    public bool IsValid => rotors.Length > 0;
 
 
-    void Start() => Init();
-
-    void Init()
+    void Start() => InitTest();
+    
+    void InitTest()
     {
-        GetLetter("A", 0);
+        Debug.Log(GetLetter("A", 0));
 
     }
     
     string GetLetter(string _letter, int _test)
     {
-        if (string.IsNullOrEmpty(_letter)) return null;
+        if (string.IsNullOrEmpty(_letter) || !IsValid) return "";
+
         RotateRotor();
         return FindDecodeLetter(_test);
     }
-
     string FindDecodeLetter(int _pos)
     {
         int _lastPos = _pos;
@@ -33,9 +36,9 @@ public class E_Engine : MonoBehaviour
         for (int i = rotors.Length - 1; i >= 0; i--)
             _lastPos = rotors[i].GetLinkPos(_lastPos, false);
 
-        return null;
+        return rotors[0].GetEntry(_lastPos);
     }
-
+    
     void RotateRotor()
     {
         if (rotors.Length == 0) return;

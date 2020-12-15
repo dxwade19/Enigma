@@ -17,7 +17,9 @@ public class E_Rotor : MonoBehaviour
 
     #region Methods
 
+    #region UnityMethods
     void Awake() => Init();
+    #endregion
 
     #region customMethods
     void Init()
@@ -28,10 +30,12 @@ public class E_Rotor : MonoBehaviour
         allExit = allEntry;
     }
 
+    #region GetLinkPos
     /// <summary>
-    /// Get Exit Pos
+    /// Get Link Pos
     /// </summary>
     /// <param name="_enterPos"></param>
+    /// <param name="_isEnter"></param>
     /// <returns></returns>
     public int GetLinkPos(int _enterPos, bool _isEnter)
     {
@@ -50,7 +54,7 @@ public class E_Rotor : MonoBehaviour
             return allEntry.IndexOf(_enterLetter);
         }
     }
-
+    #endregion
 
     #region Rotate
 
@@ -76,6 +80,8 @@ public class E_Rotor : MonoBehaviour
         }
         _toRotate[_toRotate.Count - 1] = _first;
     }
+
+
     //TOREMOVE
     void RotateList(List<E_Link> _toRotate)
     {
@@ -90,8 +96,13 @@ public class E_Rotor : MonoBehaviour
         }
         _toRotate[_toRotate.Count - 1] = _first;
     }
-
     #endregion
+
+    public string GetEntry(int _pos)
+    {
+        if (_pos > allEntry.Count - 1) return "";
+        return allEntry[_pos];
+    }
 
     #endregion
 
@@ -100,3 +111,4 @@ public class E_Rotor : MonoBehaviour
 }
 
 //TODO ListClassExtension
+//TODO RemoveRotateList
