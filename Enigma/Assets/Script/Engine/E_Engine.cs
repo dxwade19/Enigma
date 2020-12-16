@@ -12,24 +12,13 @@ public class E_Engine : MonoBehaviour
     public bool IsValid => rotors.Length > 0;
 
 
-    void Start() => InitTest();
-    
-    void InitTest()
-    {
-        GetLetter("A", 0);
-        GetLetter("A", 0);
-        GetLetter("A", 0);
-        GetLetter("A", 0);
-        GetLetter("A", 0);
-        GetLetter("A", 0);
-        GetLetter("A", 0);
-    }
-    
-    public string GetLetter(string _letter, int _test)
+    #region Decode
+    public string GetLetter(string _letter)
     {
         if (string.IsNullOrEmpty(_letter) || !IsValid) return "";
         RotateRotor();
-        return FindDecodeLetter(_test);
+        int _letterIndex = alphabeter.IndexOf(_letter);
+        return FindDecodeLetter(_letterIndex);
     }
     string FindDecodeLetter(int _pos)
     {
@@ -46,13 +35,14 @@ public class E_Engine : MonoBehaviour
         Debug.Log($"Last Position : {_lastPos} letter : {alphabeter[_lastPos]}");
         return alphabeter[_lastPos];
     }
-
     int GetReflectPos(int _lastPos)
     {
         string _newLetter = reflector.GetPos(rotors[rotors.Length - 1].GetEntry(_lastPos));
         _lastPos = rotors[rotors.Length - 1].GetExitPos(_newLetter);
         return _lastPos;
     }
+    #endregion
+    
     void RotateRotor()
     {
         if (rotors.Length == 0) return;
@@ -64,7 +54,23 @@ public class E_Engine : MonoBehaviour
                 rotors[i + 1].Rotate();
         }
     }
+
 }
 
 
 //FTZMGIS
+
+/*
+void Start() => InitTest();
+    
+    void InitTest()
+    {
+        GetLetter("A", 0);
+        GetLetter("A", 0);
+        GetLetter("A", 0);
+        GetLetter("A", 0);
+        GetLetter("A", 0);
+        GetLetter("A", 0);
+        GetLetter("A", 0);
+    }
+ */

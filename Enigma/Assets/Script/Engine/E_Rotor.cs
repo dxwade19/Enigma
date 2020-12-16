@@ -11,6 +11,9 @@ public class E_Rotor : MonoBehaviour
     List<string> allEntry = new List<string>();
     List<string> allExit = new List<string>();
 
+    List<E_Link> defaultLink = new List<E_Link>();
+
+
     public bool IsNotch => allEntry[0] == notche;
     #endregion
 
@@ -28,6 +31,7 @@ public class E_Rotor : MonoBehaviour
             allEntry.Add(allLink[i].EntryLetter);
 
         allExit = allEntry;
+        defaultLink = allLink;
     }
 
     #region GetLinkPos
@@ -114,7 +118,6 @@ public class E_Rotor : MonoBehaviour
     public int GetExitPos(string _letter) => allExit.IndexOf(_letter);
 
     #endregion
-
 
     #endregion
 }
