@@ -17,11 +17,12 @@ public class E_GameManager : SingletonTemplate<E_GameManager>
     }
 
 
-    public string DecodeText(string _textToDecode)
+    public string DecodeLetter(string _textToDecode)
     {
         if (!IsValid) return "";
-
-        return "";
+        _textToDecode = engine.GetLetter(_textToDecode);
+        E_LightPointManager.Instance?.Enable(_textToDecode);
+        return _textToDecode;
     }
 
     public void ResetEngine()
@@ -29,4 +30,5 @@ public class E_GameManager : SingletonTemplate<E_GameManager>
         engine = defaultEngine;
         E_UIManager.Instance?.ResetUI();
     }
+
 }

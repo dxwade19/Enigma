@@ -1,22 +1,18 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 
 public class E_Rotor : MonoBehaviour
 {
-    #region F:P
+    #region F/P
     [SerializeField] List<E_Link> allLink = new List<E_Link>();
     [SerializeField] string notche = "";
 
     List<string> allEntry = new List<string>();
     List<string> allExit = new List<string>();
 
-    List<E_Link> defaultLink = new List<E_Link>();
-
-
     public bool IsNotch => allEntry[0] == notche;
     #endregion
-
 
     #region Methods
 
@@ -31,7 +27,6 @@ public class E_Rotor : MonoBehaviour
             allEntry.Add(allLink[i].EntryLetter);
 
         allExit = allEntry;
-        defaultLink = allLink;
     }
 
     #region GetLinkPos
@@ -78,6 +73,7 @@ public class E_Rotor : MonoBehaviour
         RotateList(allEntry);
         allExit = allEntry;
         RotateList(allLink);
+        RotorMoveRotation();
     }
     void RotateList(List<string> _toRotate)
     {
@@ -92,8 +88,6 @@ public class E_Rotor : MonoBehaviour
         }
         _toRotate[_toRotate.Count - 1] = _first;
     }
-
-
     //TOREMOVE
     void RotateList(List<E_Link> _toRotate)
     {
@@ -110,6 +104,12 @@ public class E_Rotor : MonoBehaviour
     }
     #endregion
 
+    void RotorMoveRotation()
+    {
+        
+    }
+
+
     public string GetEntry(int _pos)
     {
         if (_pos > allEntry.Count - 1 || _pos < 0) return "";
@@ -124,3 +124,4 @@ public class E_Rotor : MonoBehaviour
 
 //TODO ListClassExtension
 //TODO RemoveRotateList
+//TODO RotateRotation

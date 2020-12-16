@@ -32,7 +32,6 @@ public class E_Engine : MonoBehaviour
         for (int i = rotors.Length - 1; i >= 0; i--)
             _lastPos = rotors[i].GetLinkPos(_lastPos, false);
 
-        Debug.Log($"Last Position : {_lastPos} letter : {alphabeter[_lastPos]}");
         return alphabeter[_lastPos];
     }
     int GetReflectPos(int _lastPos)
@@ -57,20 +56,4 @@ public class E_Engine : MonoBehaviour
 
 }
 
-
 //FTZMGIS
-
-/*
-void Start() => InitTest();
-    
-    void InitTest()
-    {
-        GetLetter("A", 0);
-        GetLetter("A", 0);
-        GetLetter("A", 0);
-        GetLetter("A", 0);
-        GetLetter("A", 0);
-        GetLetter("A", 0);
-        GetLetter("A", 0);
-    }
- */
