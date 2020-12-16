@@ -16,12 +16,16 @@ public class E_Engine : MonoBehaviour
     
     void InitTest()
     {
-        Debug.Log(GetLetter("A", 5));
-        Debug.Log(GetLetter("A", 0));
-        Debug.Log(GetLetter("A", 0));
+        GetLetter("A", 0);
+        GetLetter("A", 0);
+        GetLetter("A", 0);
+        GetLetter("A", 0);
+        GetLetter("A", 0);
+        GetLetter("A", 0);
+        GetLetter("A", 0);
     }
     
-    string GetLetter(string _letter, int _test)
+    public string GetLetter(string _letter, int _test)
     {
         if (string.IsNullOrEmpty(_letter) || !IsValid) return "";
         RotateRotor();
@@ -38,8 +42,9 @@ public class E_Engine : MonoBehaviour
 
         for (int i = rotors.Length - 1; i >= 0; i--)
             _lastPos = rotors[i].GetLinkPos(_lastPos, false);
-        
-        return rotors[0].GetEntry(_lastPos - 1);
+
+        Debug.Log($"Last Position : {_lastPos} letter : {alphabeter[_lastPos]}");
+        return alphabeter[_lastPos];
     }
 
     int GetReflectPos(int _lastPos)
@@ -48,7 +53,6 @@ public class E_Engine : MonoBehaviour
         _lastPos = rotors[rotors.Length - 1].GetExitPos(_newLetter);
         return _lastPos;
     }
-    
     void RotateRotor()
     {
         if (rotors.Length == 0) return;
@@ -64,4 +68,3 @@ public class E_Engine : MonoBehaviour
 
 
 //FTZMGIS
-

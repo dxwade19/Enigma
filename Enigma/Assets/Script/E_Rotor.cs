@@ -43,17 +43,25 @@ public class E_Rotor : MonoBehaviour
         {
             string _letter = allEntry[_enterPos];
             string _exitLetter = allLink[allEntry.IndexOf(_letter)].ExitLetter;
-            Debug.Log($"{allEntry[_enterPos]} - {allExit[allExit.IndexOf(_exitLetter)]}");
             return allExit.IndexOf(_exitLetter);
         }
         else
         {
-            string _letter = allLink[_enterPos].ExitLetter;
-            string _enterLetter = allLink[allExit.IndexOf(_letter)].EntryLetter;
-            Debug.Log($"{allExit[_enterPos]} - {allEntry[allEntry.IndexOf(_enterLetter)]}");
-            return allExit.IndexOf(_enterLetter);
+            string _letter = allExit[_enterPos];
+            int _linkPos = GetLinkExit(_letter);
+            string _entryLetter = allLink[_linkPos].EntryLetter;
+            return allEntry.IndexOf(_entryLetter);
         }
     }
+    int GetLinkExit(string _letter)
+    {
+        for (int i = 0; i < allLink.Count; i++)
+            if (allLink[i].ExitLetter == _letter) return i;
+
+        return -1;
+    }
+
+
     #endregion
 
     #region Rotate
