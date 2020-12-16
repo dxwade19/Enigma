@@ -109,7 +109,6 @@ public class E_Rotor : MonoBehaviour
         
     }
 
-
     public string GetEntry(int _pos)
     {
         if (_pos > allEntry.Count - 1 || _pos < 0) return "";
@@ -122,6 +121,6 @@ public class E_Rotor : MonoBehaviour
     #endregion
 }
 
+
 //TODO ListClassExtension
 //TODO RemoveRotateList
-//TODO RotateRotation

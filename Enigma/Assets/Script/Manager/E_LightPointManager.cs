@@ -5,10 +5,15 @@ using UnityEngine;
 
 public class E_LightPointManager : SingletonTemplate<E_LightPointManager>, IHandler<string, E_LightLetterPoint>
 {
+    #region F/P
+
     Dictionary<string, E_LightLetterPoint> handler = new Dictionary<string, E_LightLetterPoint>();
     public Dictionary<string, E_LightLetterPoint> Handler => handler;
+    #endregion
 
+    #region Methods
 
+    #region Add/Remove
     public void Add(E_LightLetterPoint _toAdd)
     {
         if(Exist(_toAdd))
@@ -38,8 +43,9 @@ public class E_LightPointManager : SingletonTemplate<E_LightPointManager>, IHand
         }
         handler.Remove(_itemToRemoveID);
     }
-
-
+    #endregion
+    
+    #region Enable/Disable
     public void Enable(string _itemID)
     {
         if(!Exist(_itemID)) return;
@@ -54,10 +60,14 @@ public class E_LightPointManager : SingletonTemplate<E_LightPointManager>, IHand
         }
         handler[_itemID].Disable();
     }
+    #endregion
 
+    #region Exist
     public bool Exist(string _itemToCheckID) => handler.ContainsKey(_itemToCheckID);
     public bool Exist(E_LightLetterPoint _itemToCheck) => handler.ContainsKey(_itemToCheck.ID);
+    #endregion
 
+    #region Get
     public E_LightLetterPoint Get(string _itemID)
     {
         if (!Exist(_itemID))
@@ -67,5 +77,7 @@ public class E_LightPointManager : SingletonTemplate<E_LightPointManager>, IHand
         }
         return handler[_itemID];
     }
+    #endregion
 
+    #endregion
 }

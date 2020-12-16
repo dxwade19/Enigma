@@ -50,7 +50,11 @@ public class E_Engine : MonoBehaviour
         for (int i = 0; i < rotors.Length; i++)
         {
             if (rotors[i].IsNotch && i != rotors.Length - 1)
+            {
                 rotors[i + 1].Rotate();
+                Debug.LogWarning($"{i + 1} : Rotate");
+            }
+                
         }
     }
 
