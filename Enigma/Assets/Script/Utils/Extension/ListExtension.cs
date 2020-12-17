@@ -2,6 +2,12 @@
 
 static class ListExtension
 {
+
+    /// <summary>
+    /// Move Every Element In List Of One Place, Last Index Become The First
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="_toChange"></param>
     public static void Rotate<T>(this List<T> _toChange)
     {
         if (_toChange.Count == 0) return;

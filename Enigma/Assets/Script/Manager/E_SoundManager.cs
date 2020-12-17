@@ -6,8 +6,17 @@ public class E_SoundManager : SingletonTemplate<E_SoundManager>
     [SerializeField, Header("Tick Sound")] AudioClip tickSound = null;
     [SerializeField, Header("KeyDown Sound")] AudioClip keyDownSound = null;
 
-    public void PlaySoundAtPoint(SoundType soundType, Vector3 _position)
+    public bool IsValid => tickSound && keyDownSound;
+
+    /// <summary>
+    /// Play Sound At Position
+    /// </summary>
+    /// <param name="soundType"></param>
+    /// <param name="_position"></param>
+    public void PlaySoundAtPosition(SoundType soundType, Vector3 _position)
     {
+        if (!IsValid) return;
+
         switch (soundType)
         {
             case SoundType.rotateSound:

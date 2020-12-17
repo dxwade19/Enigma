@@ -23,7 +23,7 @@ public class E_LightLetterPoint : MonoBehaviour, IHandlerItem<string>
     void Start() => InitItem();
     #endregion
 
-    #region IHandlerItem
+    #region IHandlerItem*
     public void InitItem() => E_LightPointManager.Instance?.Add(this);
 
     public void Enable()

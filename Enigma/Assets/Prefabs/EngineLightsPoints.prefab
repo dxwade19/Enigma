@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: X
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159003490632647
 GameObject:
@@ -91,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: D
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159003803388614
 GameObject:
@@ -137,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: G
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159003918166416
 GameObject:
@@ -183,6 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: R
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159004096848814
 GameObject:
@@ -229,6 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: A
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159004101870446
 GameObject:
@@ -275,6 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: U
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159004132236374
 GameObject:
@@ -321,6 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: W
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159004172288004
 GameObject:
@@ -367,6 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: P
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159004178513144
 GameObject:
@@ -413,6 +421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: S
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159004376705615
 GameObject:
@@ -459,6 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: N
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159004385805308
 GameObject:
@@ -505,6 +515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: J
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159004407080671
 GameObject:
@@ -551,6 +562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Q
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159004478034770
 GameObject:
@@ -597,6 +609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: B
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159004538530981
 GameObject:
@@ -643,6 +656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: V
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159004584008899
 GameObject:
@@ -689,6 +703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Z
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159004621252626
 GameObject:
@@ -735,6 +750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: H
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159004828287885
 GameObject:
@@ -781,6 +797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: E
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159004890069497
 GameObject:
@@ -827,6 +844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Y
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159004916305381
 GameObject:
@@ -873,6 +891,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: M
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159005006767012
 GameObject:
@@ -919,6 +938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: T
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 3
 --- !u!1 &8243159005047142814
 GameObject:
@@ -965,6 +985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: O
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159005048749505
 GameObject:
@@ -1011,6 +1032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: L
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159005105949373
 GameObject:
@@ -1057,6 +1079,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: C
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159005114002927
 GameObject:
@@ -1103,6 +1126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: I
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159005307068698
 GameObject:
@@ -1149,6 +1173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: F
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159005334331731
 GameObject:
@@ -1195,6 +1220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: K
   lightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  intensity: 60000
   timeOn: 2
 --- !u!1 &8243159005370564605
 GameObject:

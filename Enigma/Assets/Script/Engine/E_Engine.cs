@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class E_Engine : MonoBehaviour
 {
+    #region F/P
     [SerializeField] E_Rotor[] rotors = new E_Rotor[0];
     [SerializeField] E_Reflector reflector = null;
     [SerializeField] List<string> alphabeter = new List<string>();
 
-    public bool IsValid => rotors.Length > 0;
+    public bool IsValid => rotors.Length > 0 && reflector;
+    #endregion
+
+    #region Methods
 
     #region Decode
+
+    /// <summary>
+    /// Get Letter After Decode
+    /// </summary>
+    /// <param name="_letter"></param>
+    /// <returns></returns>
     public string GetDocodeLetter(string _letter)
     {
         if (!IsValid || !alphabeter.Contains(_letter)) return "";
@@ -20,6 +30,11 @@ public class E_Engine : MonoBehaviour
         return FindDecodeLetter(_letterIndex);
     }
 
+    /// <summary>
+    /// Decrypt Letter At Letter Position In Alphabeter
+    /// </summary>
+    /// <param name="_letterPos"></param>
+    /// <returns></returns>
     string FindDecodeLetter(int _letterPos)
     {
         for (int i = 0; i < rotors.Length; i++)
@@ -32,14 +47,22 @@ public class E_Engine : MonoBehaviour
 
         return alphabeter[_letterPos];
     }
+
+    /// <summary>
+    /// Get Letter Position After Reflector
+    /// </summary>
+    /// <param name="_lastPos"></param>
+    /// <returns></returns>
     int GetReflectPos(int _lastPos)
     {
-        string _newLetter = reflector.GetReflectPos(rotors[rotors.Length - 1].GetEntry(_lastPos));
-        _lastPos = rotors[rotors.Length - 1].GetExitPos(_newLetter);
-        return _lastPos;
+        string _newLetter = reflector.GetReflectCharacter(rotors[rotors.Length - 1].GetEntryCharacter(_lastPos));
+        return rotors[rotors.Length - 1].GetExitPos(_newLetter);
     }
     #endregion
     
+    /// <summary>
+    /// Rotate Rotor In Engine
+    /// </summary>
     void RotateRotor()
     {
         if (rotors.Length == 0) return;
@@ -51,12 +74,15 @@ public class E_Engine : MonoBehaviour
             if (rotors[1].IsNotch) rotors[2].Rotate();
         }
     }
-
-
+    
+    /// <summary>
+    /// Reset Rotor In Engine
+    /// </summary>
     public void ResetEngine()
     {
         for (int i = 0; i < rotors.Length; i++)
             rotors[i].ResetRotor();
     }
 
+    #endregion
 }

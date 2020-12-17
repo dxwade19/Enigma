@@ -9,15 +9,16 @@ public class E_Rotor : MonoBehaviour
     #endregion
 
     #region F/P
-    [SerializeField] List<E_Link> allLink = new List<E_Link>();
-    [SerializeField] string BaseRotation = "A";
-    [SerializeField] string notche = "";
-    [SerializeField, Range(5, 15)] float TurnRotationZ = 14;
+    [SerializeField, Header("Rotor Link")] List<E_Link> allLink = new List<E_Link>();
+    [SerializeField, Header("Rotor Begin Position")] string BasePosition = "A";
+    [SerializeField, Header("Notch Letter")] string notche = "";
+    [SerializeField, Header("Turn Rotation Movement") ,Range(5, 15)] float TurnRotationZ = 14;
 
     List<string> allEntry = new List<string>();
     List<string> allExit = new List<string>();
     float rotationZ = 0;
 
+    bool IsValid => allEntry.Contains(BasePosition);
     public bool IsNotch => allEntry[0] == notche;
     #endregion
 
@@ -26,9 +27,9 @@ public class E_Rotor : MonoBehaviour
     #region UnityMethods
     void Awake()
     {
-        OnRotateRotor += UpdateRotorPos;
+        OnRotateRotor += UpdateRotorList;
         OnRotateRotor += RotorMoveRotation;
-        OnRotateRotor += () => E_SoundManager.Instance?.PlaySoundAtPoint(SoundType.rotateSound, transform.position);
+        OnRotateRotor += () => E_SoundManager.Instance?.PlaySoundAtPosition(SoundType.rotateSound, transform.position);
     }
     void Start() => Init();
     void OnDestroy() => OnRotateRotor = null;
@@ -47,9 +48,16 @@ public class E_Rotor : MonoBehaviour
     }
 
     #region GetLinkPos
-    public int GetLinkPos(int _enterPos, bool _isEnter)
+
+    /// <summary>
+    /// Get Position Link To Enter Position
+    /// </summary>
+    /// <param name="_enterPos"></param>
+    /// <param name="_isEntryLetter"></param>
+    /// <returns></returns>
+    public int GetLinkPos(int _enterPos, bool _isEntryLetter)
     {
-        if(_isEnter)
+        if(_isEntryLetter)
         {
             string _letter = allEntry[_enterPos];
             string _exitLetter = allLink[allEntry.IndexOf(_letter)].ExitLetter;
@@ -63,6 +71,12 @@ public class E_Rotor : MonoBehaviour
             return allEntry.IndexOf(_entryLetter);
         }
     }
+
+    /// <summary>
+    /// Get Link Position Of This Exit Letter
+    /// </summary>
+    /// <param name="_letter"></param>
+    /// <returns></returns>
     int GetLinkExit(string _letter)
     {
         for (int i = 0; i < allLink.Count; i++)
@@ -73,13 +87,25 @@ public class E_Rotor : MonoBehaviour
     #endregion
 
     #region Rotate
+
+    /// <summary>
+    /// Call Action On Rotation
+    /// </summary>
     public void Rotate() => OnRotateRotor?.Invoke();
-    void UpdateRotorPos()
+
+    /// <summary>
+    /// Update List When OnRotation is Invoke
+    /// </summary>
+    void UpdateRotorList()
     {
-        allEntry.Rotate<string>();
+        allEntry.Rotate();
         allExit = allEntry;
-        allLink.Rotate<E_Link>();
+        allLink.Rotate();
     }
+
+    /// <summary>
+    /// Update Rotor Rotation In Space When Rotation Is Invoke
+    /// </summary>
     void RotorMoveRotation()
     {
         rotationZ = rotationZ - TurnRotationZ;
@@ -88,19 +114,40 @@ public class E_Rotor : MonoBehaviour
     #endregion
 
     #region Reset
+
+    /// <summary>
+    /// Reset Rotor To Base Position
+    /// </summary>
     public void ResetRotor()
     {
-        while (allLink[0].EntryLetter != BaseRotation.ToUpper())
+        if (!IsValid) return;
+
+        while (allLink[0].EntryLetter != BasePosition.ToUpper())
             OnRotateRotor?.Invoke();
     }
     #endregion
 
-    public string GetEntry(int _pos)
+    #region GetEntry / Exit
+
+    /// <summary>
+    /// Get Entry Character At Position
+    /// </summary>
+    /// <param name="_pos"></param>
+    /// <returns></returns>
+    public string GetEntryCharacter(int _pos)
     {
         if (_pos > allEntry.Count - 1 || _pos < 0) return "";
         return allEntry[_pos];
     }
+
+    /// <summary>
+    /// Get Exit Position Of a letter
+    /// </summary>
+    /// <param name="_letter"></param>
+    /// <returns></returns>
     public int GetExitPos(string _letter) => allExit.IndexOf(_letter);
+    #endregion
+
     #endregion
 
     #endregion

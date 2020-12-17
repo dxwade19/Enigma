@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2732250440843337422}
   - component: {fileID: 2732250440843337416}
   - component: {fileID: 2732250440843337419}
+  - component: {fileID: 437022628}
   m_Layer: 0
   m_Name: Logic
   m_TagString: Untagged
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputField: {fileID: 0}
   Encodedtext: {fileID: 0}
-  defaultEncodedValue: 'ENCODED :'
+  EncodedValue: 'ENCODED :'
 --- !u!114 &2732250440843337416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,3 +74,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15baa25d36e292949b23791f6229461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &437022628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2732250440843337423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c77ab02173e4a945ba6119090c6920f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tickSound: {fileID: 8300000, guid: c3da7f414bbb05e4cbf02a0b3c8a7a82, type: 3}
+  keyDownSound: {fileID: 8300000, guid: 5ac57a36f1eaee34181980679ef41a33, type: 3}

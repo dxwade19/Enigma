@@ -6,7 +6,12 @@ public class E_Reflector : MonoBehaviour
 {
     [SerializeField] List<E_Link> links = new List<E_Link>();
 
-    public string GetReflectPos(string _letter)
+    /// <summary>
+    /// Get Reflect Character Of Letter
+    /// </summary>
+    /// <param name="_letter"></param>
+    /// <returns></returns>
+    public string GetReflectCharacter(string _letter)
     {
         for (int i = 0; i < links.Count; i++)
         {
@@ -17,4 +22,5 @@ public class E_Reflector : MonoBehaviour
         }
         return "";
     }
+
 }

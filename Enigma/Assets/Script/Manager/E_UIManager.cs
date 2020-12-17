@@ -17,15 +17,20 @@ public class E_UIManager : SingletonTemplate<E_UIManager>
 
     void Start() => originalValue = EncodedValue;
 
+    /// <summary>
+    /// Update Engine Text
+    /// </summary>
     public void ChangeText()
     {
         string _toDecode = inputField.text.ToUpper();
         inputField.text = "";
-        EncodedValue = EncodedValue + E_GameManager.Instance?.GetDecodeLetter(_toDecode);
+        EncodedValue = EncodedValue + E_GameManager.Instance?.GetDecodeLetterWithEngine(_toDecode);
         Encodedtext.text = EncodedValue;
     }
 
-    
+    /// <summary>
+    /// Reset UI And Delete Text
+    /// </summary>
     public void ResetUI()
     {
         inputField.text = "";
