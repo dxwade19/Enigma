@@ -46,8 +46,6 @@ public class E_GameManager : SingletonTemplate<E_GameManager>
 
 
 //TODO ResetEngine
-//TODO HDRP
-
 
 //TODO ListClassExtension
 //TODO SoundManager

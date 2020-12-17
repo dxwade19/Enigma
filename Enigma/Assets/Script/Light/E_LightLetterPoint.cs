@@ -8,6 +8,7 @@ public class E_LightLetterPoint : MonoBehaviour, IHandlerItem<string>
     #region F/P
     [SerializeField, Header("Item ID")] string id = "LightPoint";
     [SerializeField, Header("Light Color")] Color lightColor = Color.yellow;
+    [SerializeField, Header("Light Intensity")] float intensity = 60000;
     [SerializeField, Header("Light On Time"), Range(0, 10)] float timeOn = 2;
     Light light = null;
 
@@ -39,13 +40,18 @@ public class E_LightLetterPoint : MonoBehaviour, IHandlerItem<string>
         if (light)
         {
             light.type = LightType.Point;
+            light.intensity = intensity;
             light.transform.position = transform.position;
             light.color = lightColor;
             Destroy(light, timeOn);
         }
     }
 
-    public void Disable() { }
+    public void Disable()
+    {
+        if (light)
+            light = null;
+    }
     #endregion
 
     #endregion

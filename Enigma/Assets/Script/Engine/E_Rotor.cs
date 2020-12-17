@@ -26,7 +26,7 @@ public class E_Rotor : MonoBehaviour
     #region UnityMethods
     void Awake()
     {
-        OnRotateRotor += RotateAllList;
+        OnRotateRotor += UpdateRotorPos;
         OnRotateRotor += RotorMoveRotation;
         OnRotateRotor += PlaySound;
     }
@@ -82,12 +82,18 @@ public class E_Rotor : MonoBehaviour
     /// <summary>
     /// Rotate Rotor pos
     /// </summary>
-    void RotateAllList()
+    void UpdateRotorPos()
     {
         RotateList(allEntry);
         allExit = allEntry;
         RotateList(allLink);
     }
+    void RotorMoveRotation()
+    {
+        rotationZ = rotationZ - TurnRotationZ;
+        transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, rotationZ);
+    }
+
     void RotateList(List<string> _toRotate)
     {
         if (_toRotate.Count == 0) return;
@@ -115,12 +121,6 @@ public class E_Rotor : MonoBehaviour
         }
         _toRotate[_toRotate.Count - 1] = _first;
     }
-
-    void RotorMoveRotation()
-    {
-        rotationZ = rotationZ - TurnRotationZ;
-        transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, rotationZ);
-    }
     #endregion
 
 
@@ -140,6 +140,7 @@ public class E_Rotor : MonoBehaviour
 
     #endregion
 }
+
 
 
 //TODO ListClassExtension
