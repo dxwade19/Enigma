@@ -10,8 +10,8 @@ public class E_Rotor : MonoBehaviour
 
     #region F/P
     [SerializeField] List<E_Link> allLink = new List<E_Link>();
+    [SerializeField] string BaseRotation = "A";
     [SerializeField] string notche = "";
-    [SerializeField] AudioClip rotateSound = null;
     [SerializeField, Range(5, 15)] float TurnRotationZ = 14;
 
     List<string> allEntry = new List<string>();
@@ -28,10 +28,10 @@ public class E_Rotor : MonoBehaviour
     {
         OnRotateRotor += UpdateRotorPos;
         OnRotateRotor += RotorMoveRotation;
-        OnRotateRotor += PlaySound;
+        OnRotateRotor += () => E_SoundManager.Instance?.PlaySoundAtPoint(SoundType.rotateSound, transform.position);
     }
     void Start() => Init();
-    private void OnDestroy() => OnRotateRotor = null;
+    void OnDestroy() => OnRotateRotor = null;
     #endregion
 
     #region customMethods
@@ -42,15 +42,11 @@ public class E_Rotor : MonoBehaviour
 
         allExit = allEntry;
         rotationZ = transform.rotation.z;
+
+        ResetRotor();
     }
 
     #region GetLinkPos
-    /// <summary>
-    /// Get Link Pos
-    /// </summary>
-    /// <param name="_enterPos"></param>
-    /// <param name="_isEnter"></param>
-    /// <returns></returns>
     public int GetLinkPos(int _enterPos, bool _isEnter)
     {
         if(_isEnter)
@@ -78,52 +74,26 @@ public class E_Rotor : MonoBehaviour
 
     #region Rotate
     public void Rotate() => OnRotateRotor?.Invoke();
-
-    /// <summary>
-    /// Rotate Rotor pos
-    /// </summary>
     void UpdateRotorPos()
     {
-        RotateList(allEntry);
+        allEntry.Rotate<string>();
         allExit = allEntry;
-        RotateList(allLink);
+        allLink.Rotate<E_Link>();
     }
     void RotorMoveRotation()
     {
         rotationZ = rotationZ - TurnRotationZ;
         transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, rotationZ);
     }
-
-    void RotateList(List<string> _toRotate)
-    {
-        if (_toRotate.Count == 0) return;
-
-        string _first = _toRotate[0];
-        for (int i = 0; i < _toRotate.Count; i++)
-        {
-            if (i != _toRotate.Count -1)
-                _toRotate[i] = _toRotate[i + 1];
-                
-        }
-        _toRotate[_toRotate.Count - 1] = _first;
-    }
-    //TOREMOVE
-    void RotateList(List<E_Link> _toRotate)
-    {
-        if (_toRotate.Count == 0) return;
-
-        E_Link _first = _toRotate[0];
-        for (int i = 0; i < _toRotate.Count; i++)
-        {
-            if (i != _toRotate.Count - 1)
-                _toRotate[i] = _toRotate[i + 1];
-
-        }
-        _toRotate[_toRotate.Count - 1] = _first;
-    }
     #endregion
 
-
+    #region Reset
+    public void ResetRotor()
+    {
+        while (allLink[0].EntryLetter != BaseRotation.ToUpper())
+            OnRotateRotor?.Invoke();
+    }
+    #endregion
 
     public string GetEntry(int _pos)
     {
@@ -131,17 +101,7 @@ public class E_Rotor : MonoBehaviour
         return allEntry[_pos];
     }
     public int GetExitPos(string _letter) => allExit.IndexOf(_letter);
-
-    void PlaySound()
-    {
-        if (rotateSound) AudioSource.PlayClipAtPoint(rotateSound, transform.position);
-    }
     #endregion
 
     #endregion
 }
-
-
-
-//TODO ListClassExtension
-//TODO RemoveRotateList

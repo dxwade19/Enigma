@@ -1,36 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
 
 
 public class E_GameManager : SingletonTemplate<E_GameManager>
 {
     #region F/P
     [SerializeField, Header("Engine")] E_Engine engine = null;
-    [SerializeField, Header("KeyDownClip")] AudioClip clip = null;
-    E_Engine defaultEngine = null;
 
     public bool IsValid => engine;
     #endregion
 
     #region Methods
-    void Start() => Init();
+
     #region CustomMethods
-    void Init()
-    {
-        defaultEngine = engine;
-    }
-    
-    public string DecodeLetter(string _textToDecode)
+    public string GetDecodeLetter(string _letterToDecode)
     {
         if (!IsValid) return "";
-        _textToDecode = engine.GetLetter(_textToDecode);
-        E_LightPointManager.Instance?.Enable(_textToDecode);
-        AudioSource.PlayClipAtPoint(clip , transform.position);
-        return _textToDecode;
-    }
 
-    //Remake
+        E_SoundManager.Instance?.PlaySoundAtPoint(SoundType.KeyDown, transform.position);
+        _letterToDecode = engine.GetDocodeLetter(_letterToDecode);
+        E_LightPointManager.Instance?.Enable(_letterToDecode);
+
+        return _letterToDecode;
+    }
+    
     public void ResetGame()
     {
         engine.ResetEngine();
@@ -45,7 +38,6 @@ public class E_GameManager : SingletonTemplate<E_GameManager>
 
 
 
-//TODO ResetEngine
+//TODO RemakeResetEngine
 
 //TODO ListClassExtension
-//TODO SoundManager

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -12,13 +11,15 @@ public class E_Engine : MonoBehaviour
     public bool IsValid => rotors.Length > 0;
 
     #region Decode
-    public string GetLetter(string _letter)
+    public string GetDocodeLetter(string _letter)
     {
-        if (string.IsNullOrEmpty(_letter) || !IsValid) return "";
+        if (!IsValid || !alphabeter.Contains(_letter)) return "";
+
         RotateRotor();
         int _letterIndex = alphabeter.IndexOf(_letter);
         return FindDecodeLetter(_letterIndex);
     }
+
     string FindDecodeLetter(int _letterPos)
     {
         for (int i = 0; i < rotors.Length; i++)
@@ -33,7 +34,7 @@ public class E_Engine : MonoBehaviour
     }
     int GetReflectPos(int _lastPos)
     {
-        string _newLetter = reflector.GetPos(rotors[rotors.Length - 1].GetEntry(_lastPos));
+        string _newLetter = reflector.GetReflectPos(rotors[rotors.Length - 1].GetEntry(_lastPos));
         _lastPos = rotors[rotors.Length - 1].GetExitPos(_newLetter);
         return _lastPos;
     }
@@ -54,14 +55,8 @@ public class E_Engine : MonoBehaviour
 
     public void ResetEngine()
     {
-
+        for (int i = 0; i < rotors.Length; i++)
+            rotors[i].ResetRotor();
     }
 
 }
-
-/*
-if (rotors[i].IsNotch && i != rotors.Length - 1)
-            {
-                rotors[i + 1].Rotate();
-            }
-*/

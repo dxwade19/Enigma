@@ -1,15 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 
 public class E_Reflector : MonoBehaviour
 {
     [SerializeField] List<E_Link> links = new List<E_Link>();
-    
 
-
-    public string GetPos(string _letter)
+    public string GetReflectPos(string _letter)
     {
         for (int i = 0; i < links.Count; i++)
         {
@@ -20,6 +17,4 @@ public class E_Reflector : MonoBehaviour
         }
         return "";
     }
-
-
 }

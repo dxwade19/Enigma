@@ -24,14 +24,8 @@ public class E_LightLetterPoint : MonoBehaviour, IHandlerItem<string>
     #endregion
 
     #region IHandlerItem
-    public void InitItem()
-    {
-        E_LightPointManager.Instance?.Add(this);
-    }
+    public void InitItem() => E_LightPointManager.Instance?.Add(this);
 
-    /// <summary>
-    /// Add Light Component for Time On Second
-    /// </summary>
     public void Enable()
     {
         if (!light)

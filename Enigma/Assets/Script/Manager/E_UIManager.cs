@@ -10,6 +10,7 @@ public class E_UIManager : SingletonTemplate<E_UIManager>
     [SerializeField, Header("Encoded text :")] TMP_Text Encodedtext = null;
     [SerializeField, Header("Default Encoded value :")] string EncodedValue  = "ENCODED :";
     string originalValue = "";
+
     #endregion
 
     #region Methods
@@ -20,7 +21,7 @@ public class E_UIManager : SingletonTemplate<E_UIManager>
     {
         string _toDecode = inputField.text.ToUpper();
         inputField.text = "";
-        EncodedValue = EncodedValue + E_GameManager.Instance?.DecodeLetter(_toDecode);
+        EncodedValue = EncodedValue + E_GameManager.Instance?.GetDecodeLetter(_toDecode);
         Encodedtext.text = EncodedValue;
     }
 

@@ -405,7 +405,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 12.75
+  m_fontSize: 12.9
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 196077230}
   - component: {fileID: 196077229}
   m_Layer: 5
-  m_Name: ResetButton (1)
+  m_Name: ExitButton (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1048,8 +1048,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 765615731}
-        m_MethodName: ResetUI
+      - m_Target: {fileID: 765615733}
+        m_MethodName: ResetGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1096,6 +1096,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434245682}
   m_CullTransparentMesh: 0
+--- !u!1 &437022627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2732250440843337423, guid: 516b7e365277121428be893b61e08308,
+    type: 3}
+  m_PrefabInstance: {fileID: 2732250441558343869}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &437022628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437022627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c77ab02173e4a945ba6119090c6920f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tickSound: {fileID: 8300000, guid: c3da7f414bbb05e4cbf02a0b3c8a7a82, type: 3}
+  keyDownSound: {fileID: 8300000, guid: 5ac57a36f1eaee34181980679ef41a33, type: 3}
 --- !u!1 &508696378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1328,7 +1348,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2732250441558343869}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 437022627}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c672f561f30bf5418a781c54b298894, type: 3}
@@ -1340,7 +1360,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2732250441558343869}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 437022627}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0dbf78e9d5d4954aba466a68cbf0342, type: 3}
@@ -1430,7 +1450,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 12.55
+  m_fontSize: 12.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2222,6 +2242,11 @@ PrefabInstance:
       propertyPath: TurnRotationZ
       value: 13.8
       objectReference: {fileID: 0}
+    - target: {fileID: 751994285570193705, guid: f77a18425314ae54a82fa6cad30afad2,
+        type: 3}
+      propertyPath: BaseRotation
+      value: A
+      objectReference: {fileID: 0}
     - target: {fileID: 1376174372773292851, guid: f77a18425314ae54a82fa6cad30afad2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2392,6 +2417,11 @@ PrefabInstance:
       propertyPath: TurnRotationZ
       value: 13.8
       objectReference: {fileID: 0}
+    - target: {fileID: 6706558366971643005, guid: f77a18425314ae54a82fa6cad30afad2,
+        type: 3}
+      propertyPath: BaseRotation
+      value: A
+      objectReference: {fileID: 0}
     - target: {fileID: 7783546722639793299, guid: f77a18425314ae54a82fa6cad30afad2,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -2436,6 +2466,11 @@ PrefabInstance:
         type: 3}
       propertyPath: TurnRotationZ
       value: 13.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394089830328592037, guid: f77a18425314ae54a82fa6cad30afad2,
+        type: 3}
+      propertyPath: BaseRotation
+      value: A
       objectReference: {fileID: 0}
     - target: {fileID: 8794266524695019575, guid: f77a18425314ae54a82fa6cad30afad2,
         type: 3}
@@ -2716,7 +2751,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4983735487423090899}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.2721443, y: 3.8899527, z: 7.2709045}
+  m_LocalPosition: {x: -5.2721443, y: 3.8899527, z: 8.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
