@@ -4,12 +4,19 @@ using System;
 
 public class E_Rotor : MonoBehaviour
 {
+    #region Action
+    public event Action OnRotateRotor = null;
+    #endregion
+
     #region F/P
     [SerializeField] List<E_Link> allLink = new List<E_Link>();
     [SerializeField] string notche = "";
+    [SerializeField] AudioClip rotateSound = null;
+    [SerializeField, Range(5, 15)] float TurnRotationZ = 14;
 
     List<string> allEntry = new List<string>();
     List<string> allExit = new List<string>();
+    float rotationZ = 0;
 
     public bool IsNotch => allEntry[0] == notche;
     #endregion
@@ -17,7 +24,14 @@ public class E_Rotor : MonoBehaviour
     #region Methods
 
     #region UnityMethods
-    void Awake() => Init();
+    void Awake()
+    {
+        OnRotateRotor += RotateAllList;
+        OnRotateRotor += RotorMoveRotation;
+        OnRotateRotor += PlaySound;
+    }
+    void Start() => Init();
+    private void OnDestroy() => OnRotateRotor = null;
     #endregion
 
     #region customMethods
@@ -27,6 +41,7 @@ public class E_Rotor : MonoBehaviour
             allEntry.Add(allLink[i].EntryLetter);
 
         allExit = allEntry;
+        rotationZ = transform.rotation.z;
     }
 
     #region GetLinkPos
@@ -59,21 +74,19 @@ public class E_Rotor : MonoBehaviour
 
         return -1;
     }
-
-
     #endregion
 
     #region Rotate
+    public void Rotate() => OnRotateRotor?.Invoke();
 
     /// <summary>
     /// Rotate Rotor pos
     /// </summary>
-    public void Rotate()
+    void RotateAllList()
     {
         RotateList(allEntry);
         allExit = allEntry;
         RotateList(allLink);
-        RotorMoveRotation();
     }
     void RotateList(List<string> _toRotate)
     {
@@ -102,12 +115,15 @@ public class E_Rotor : MonoBehaviour
         }
         _toRotate[_toRotate.Count - 1] = _first;
     }
-    #endregion
 
     void RotorMoveRotation()
     {
-        
+        rotationZ = rotationZ - TurnRotationZ;
+        transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, rotationZ);
     }
+    #endregion
+
+
 
     public string GetEntry(int _pos)
     {
@@ -116,6 +132,10 @@ public class E_Rotor : MonoBehaviour
     }
     public int GetExitPos(string _letter) => allExit.IndexOf(_letter);
 
+    void PlaySound()
+    {
+        if (rotateSound) AudioSource.PlayClipAtPoint(rotateSound, transform.position);
+    }
     #endregion
 
     #endregion

@@ -11,7 +11,6 @@ public class E_Engine : MonoBehaviour
 
     public bool IsValid => rotors.Length > 0;
 
-
     #region Decode
     public string GetLetter(string _letter)
     {
@@ -20,19 +19,17 @@ public class E_Engine : MonoBehaviour
         int _letterIndex = alphabeter.IndexOf(_letter);
         return FindDecodeLetter(_letterIndex);
     }
-    string FindDecodeLetter(int _pos)
+    string FindDecodeLetter(int _letterPos)
     {
-        int _lastPos = _pos;
-
         for (int i = 0; i < rotors.Length; i++)
-            _lastPos = rotors[i].GetLinkPos(_lastPos, true);
+            _letterPos = rotors[i].GetLinkPos(_letterPos, true);
 
-        _lastPos = GetReflectPos(_lastPos);
+        _letterPos = GetReflectPos(_letterPos);
 
         for (int i = rotors.Length - 1; i >= 0; i--)
-            _lastPos = rotors[i].GetLinkPos(_lastPos, false);
+            _letterPos = rotors[i].GetLinkPos(_letterPos, false);
 
-        return alphabeter[_lastPos];
+        return alphabeter[_letterPos];
     }
     int GetReflectPos(int _lastPos)
     {
@@ -47,17 +44,24 @@ public class E_Engine : MonoBehaviour
         if (rotors.Length == 0) return;
 
         rotors[0].Rotate();
-        for (int i = 0; i < rotors.Length; i++)
+        if (rotors[0].IsNotch)
         {
-            if (rotors[i].IsNotch && i != rotors.Length - 1)
-            {
-                rotors[i + 1].Rotate();
-                Debug.LogWarning($"{i + 1} : Rotate");
-            }
-                
+            rotors[1].Rotate();
+            if (rotors[1].IsNotch) rotors[2].Rotate();
         }
+    }
+
+
+    public void ResetEngine()
+    {
+
     }
 
 }
 
-//FTZMGIS
+/*
+if (rotors[i].IsNotch && i != rotors.Length - 1)
+            {
+                rotors[i + 1].Rotate();
+            }
+*/

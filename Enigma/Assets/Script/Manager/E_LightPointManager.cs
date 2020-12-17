@@ -70,11 +70,7 @@ public class E_LightPointManager : SingletonTemplate<E_LightPointManager>, IHand
     #region Get
     public E_LightLetterPoint Get(string _itemID)
     {
-        if (!Exist(_itemID))
-        {
-            Debug.LogError($"{_itemID} dont exist");
-            return null;
-        }
+        if (!Exist(_itemID)) return null;
         return handler[_itemID];
     }
     #endregion

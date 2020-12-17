@@ -7,15 +7,14 @@ public class E_GameManager : SingletonTemplate<E_GameManager>
 {
     #region F/P
     [SerializeField, Header("Engine")] E_Engine engine = null;
+    [SerializeField, Header("KeyDownClip")] AudioClip clip = null;
     E_Engine defaultEngine = null;
 
     public bool IsValid => engine;
     #endregion
 
     #region Methods
-
     void Start() => Init();
-
     #region CustomMethods
     void Init()
     {
@@ -27,27 +26,28 @@ public class E_GameManager : SingletonTemplate<E_GameManager>
         if (!IsValid) return "";
         _textToDecode = engine.GetLetter(_textToDecode);
         E_LightPointManager.Instance?.Enable(_textToDecode);
+        AudioSource.PlayClipAtPoint(clip , transform.position);
         return _textToDecode;
     }
 
     //Remake
-    public void ResetEngine()
+    public void ResetGame()
     {
-        engine = defaultEngine;
+        engine.ResetEngine();
         E_UIManager.Instance?.ResetUI();
     }
 
+    public void ExitGame() => Application.Quit();
     #endregion
 
     #endregion
 }
 
 
-//TODO Sound
-//TODO Rotate
+
+//TODO ResetEngine
 //TODO HDRP
 
-//TODO CorLetterAfterRotate
-//TODO ListClassExtension
 
-//TODO Event KeyPressed
+//TODO ListClassExtension
+//TODO SoundManager

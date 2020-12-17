@@ -12,6 +12,8 @@ public class E_LightLetterPoint : MonoBehaviour, IHandlerItem<string>
     Light light = null;
 
     public string ID => id.ToUpper();
+
+    public Vector3 Position => transform.position;
     #endregion
 
     #region Methods
