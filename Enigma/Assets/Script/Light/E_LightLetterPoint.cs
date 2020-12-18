@@ -30,21 +30,19 @@ public class E_LightLetterPoint : MonoBehaviour, IHandlerItem<string>
     {
         if (!light)
             light = gameObject.AddComponent<Light>();
-
-        if (light)
-        {
-            light.type = LightType.Point;
-            light.intensity = intensity;
-            light.transform.position = transform.position;
-            light.color = lightColor;
-            Destroy(light, timeOn);
-        }
+        
+        light.type = LightType.Point;
+        light.intensity = intensity;
+        light.transform.position = transform.position;
+        light.color = lightColor;
+        Destroy(light, timeOn);
+        
     }
 
     public void Disable()
     {
         if (light)
-            light = null;
+            Destroy(light);
     }
     #endregion
 

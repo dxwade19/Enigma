@@ -21,6 +21,4 @@ static class ListExtension
         }
         _toChange[_toChange.Count - 1] = _first;
     }
-        
-        
 }

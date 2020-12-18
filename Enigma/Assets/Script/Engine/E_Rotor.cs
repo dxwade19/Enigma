@@ -19,7 +19,7 @@ public class E_Rotor : MonoBehaviour
     float rotationZ = 0;
 
     bool IsValid => allEntry.Contains(BasePosition);
-    public bool IsNotch => allEntry[0] == notche;
+    public bool IsNotch => allEntry[allEntry.Count-1] == notche;
     #endregion
 
     #region Methods
@@ -125,6 +125,15 @@ public class E_Rotor : MonoBehaviour
         while (allLink[0].EntryLetter != BasePosition.ToUpper())
             OnRotateRotor?.Invoke();
     }
+
+    /// <summary>
+    /// Reset Rotor To Base Position
+    /// </summary>
+    public void ChangeBasePosition(string _newBasePosition)
+    {
+        if (!IsValid) return;
+        BasePosition = _newBasePosition;
+    }
     #endregion
 
     #region GetEntry / Exit
@@ -140,12 +149,20 @@ public class E_Rotor : MonoBehaviour
         return allEntry[_pos];
     }
 
+    public string GetExitCharacter(int _pos)
+    {
+        if (_pos > allEntry.Count - 1 || _pos < 0) return "";
+        return allExit[_pos];
+    }
+
     /// <summary>
     /// Get Exit Position Of a letter
     /// </summary>
     /// <param name="_letter"></param>
     /// <returns></returns>
     public int GetExitPos(string _letter) => allExit.IndexOf(_letter);
+
+    public string GetExitLetter(int _pos) => allExit[_pos];
     #endregion
 
     #endregion

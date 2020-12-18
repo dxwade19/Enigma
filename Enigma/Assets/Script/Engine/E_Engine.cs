@@ -14,6 +14,12 @@ public class E_Engine : MonoBehaviour
 
     #region Methods
 
+    #region Unity Methods
+    void Start() => ChangeConfigTextUI();
+    #endregion
+
+    #region Custom Methods
+
     #region Decode
 
     /// <summary>
@@ -56,16 +62,20 @@ public class E_Engine : MonoBehaviour
     int GetReflectPos(int _lastPos)
     {
         string _newLetter = reflector.GetReflectCharacter(rotors[rotors.Length - 1].GetEntryCharacter(_lastPos));
-        return rotors[rotors.Length - 1].GetExitPos(_newLetter);
+        int _letterPos = alphabeter.IndexOf(_newLetter);
+        string _letterfinal = rotors[rotors.Length - 1].GetExitCharacter(_letterPos);
+        return rotors[rotors.Length-1].GetExitPos(_letterfinal);
     }
     #endregion
-    
+
+    #region Rotate Engine Rotor
+
     /// <summary>
     /// Rotate Rotor In Engine
     /// </summary>
     void RotateRotor()
     {
-        if (rotors.Length == 0) return;
+        if (!IsValid && rotors.Length == 3) return;
 
         rotors[0].Rotate();
         if (rotors[0].IsNotch)
@@ -73,8 +83,12 @@ public class E_Engine : MonoBehaviour
             rotors[1].Rotate();
             if (rotors[1].IsNotch) rotors[2].Rotate();
         }
+        ChangeConfigTextUI();
     }
-    
+    #endregion
+
+    #region Reset
+
     /// <summary>
     /// Reset Rotor In Engine
     /// </summary>
@@ -83,6 +97,37 @@ public class E_Engine : MonoBehaviour
         for (int i = 0; i < rotors.Length; i++)
             rotors[i].ResetRotor();
     }
+
+    /// <summary>
+    /// Change Base Position Of Rotor Pos
+    /// </summary>
+    /// <param name="_newRotorPos"></param>
+    /// <param name="_rotorPosition"></param>
+    public void ChangeRotorBasePosition(string _newRotorPos, int _rotorPosition)
+    {
+        if (_rotorPosition > rotors.Length - 1 || _rotorPosition < 0) return;
+        rotors[_rotorPosition].ChangeBasePosition(_newRotorPos);
+        ChangeConfigTextUI();
+    }
+    #endregion
+
+    #region Change Text
+
+    /// <summary>
+    /// Change Config Text In UI
+    /// </summary>
+    void ChangeConfigTextUI()
+    {
+        string _newConfigText = "";
+
+        for (int i = 0; i < rotors.Length; i++)
+            _newConfigText = _newConfigText + $"{rotors[i].GetEntryCharacter(0)} ";
+
+        E_UIManager.Instance?.ChangeConfigText(_newConfigText);
+    }
+    #endregion
+
+    #endregion
 
     #endregion
 }

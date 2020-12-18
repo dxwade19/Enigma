@@ -16,6 +16,4 @@ public abstract class SingletonTemplate<T> : MonoBehaviour where T : MonoBehavio
         }
         instance = this as T;
     }
-
-
 }

@@ -970,7 +970,7 @@ MonoBehaviour:
     exitLetter: C
   - entryLetter: Z
     exitLetter: J
-  BaseRotation: A
+  BasePosition: A
   notche: Q
   TurnRotationZ: 13.8
 --- !u!1 &2796097323708531286
@@ -2135,7 +2135,7 @@ MonoBehaviour:
     exitLetter: Q
   - entryLetter: Z
     exitLetter: O
-  BaseRotation: A
+  BasePosition: A
   notche: V
   TurnRotationZ: 13.8
 --- !u!114 &4769509908766009392
@@ -3068,7 +3068,7 @@ MonoBehaviour:
     exitLetter: O
   - entryLetter: Z
     exitLetter: E
-  BaseRotation: A
+  BasePosition: A
   notche: E
   TurnRotationZ: 13.8
 --- !u!1 &7298520214803962776
